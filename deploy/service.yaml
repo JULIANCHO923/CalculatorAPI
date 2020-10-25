@@ -10,3 +10,4 @@ spec:
     - protocol: TCP
       port: 8082
       targetPort: 5081 # target port de los contenedores
+      
