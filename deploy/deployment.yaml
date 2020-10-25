@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: api-calculadora-deployment
+  labels:
+    app: api-calculadora
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: api-calculadora
+  template: 
+    metadata:     
+      labels:
+        app: api-calculadora
+    spec:
+       containers:
+       - name: api-calculadora
+         image: juliancho923/api-calculadora:#{Build.BuildId}#
+         ports:
+         - containerPort: 5081
