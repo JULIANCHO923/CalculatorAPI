@@ -16,19 +16,19 @@ public class OperacionesController {
     Operaciones calculadora;
 
     @RequestMapping(value="/suma/{n1}/{n2}",method = RequestMethod.GET)
-    private ResponseEntity<Double> suma(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
+    private ResponseEntity<String> suma(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
         return ResponseEntity.status(200).body("<html><body><title>suma</title>La suma entre "+n1+"+"+n2+" = "+ calculadora.suma(n1,n2) +"</body></html>");
     }
     @RequestMapping(value="/resta/{n1}/{n2}",method = RequestMethod.GET)
-    public ResponseEntity<Double> resta(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
+    public ResponseEntity<String> resta(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
         return ResponseEntity.status(200).body("<html><body><title>resta</title>La resta entre "+ n1 + "-" + n2 + " = " + calculadora.resta(n1,n2) + "</body></html>");
     }
     @RequestMapping(value="/multiplicacion/{n1}/{n2}",method = RequestMethod.GET)
-    public ResponseEntity<Double> multiplicacion(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
+    public ResponseEntity<String> multiplicacion(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
         return ResponseEntity.status(200).body("<html><body><title>multiplicacion</title>La multiplicacion entre "+ n1 + "*" + n2 + " = " + calculadora.multiplicacion(n1,n2) + "</body></html>");
     }
     @RequestMapping(value="/division/{n1}/{n2}",method = RequestMethod.GET)
-    public ResponseEntity<Double> division(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
+    public ResponseEntity<String> division(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
         return ResponseEntity.status(200).body("<html><body><title>division</title>La division entre "+ n1 + "/" + n2 + " = " + calculadora.division(n1,n2) + "</body></html>");    
 }
 }
