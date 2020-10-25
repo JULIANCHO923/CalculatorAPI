@@ -1,5 +1,4 @@
 package com.devops.calculadoraAPI.controlador;
-
 import com.devops.calculadoraAPI.modelo.Operaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ public class OperacionesController {
     }
     @RequestMapping(value="/resta/{n1}/{n2}",method = RequestMethod.GET)
     public ResponseEntity<Double> resta(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
-        return ResponseEntity.status(200).body(("<html><body><title>resta</title>La resta entre "+ n1 + "-" + n2 + " = " + calculadora.resta(n1,n2) + "</body></html>"););
+        return ResponseEntity.status(200).body(("<html><body><title>resta</title>La resta entre "+ n1 + "-" + n2 + " = " + calculadora.resta(n1,n2) + "</body></html>");
     }
     @RequestMapping(value="/multiplicacion/{n1}/{n2}",method = RequestMethod.GET)
     public ResponseEntity<Double> multiplicacion(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
@@ -31,5 +30,5 @@ public class OperacionesController {
     @RequestMapping(value="/division/{n1}/{n2}",method = RequestMethod.GET)
     public ResponseEntity<Double> division(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
         return ResponseEntity.status(200).body("<html><body><title>division</title>La division entre "+ n1 + "/" + n2 + " = " + calculadora.division(n1,n2) + "</body></html>");    
-    }
+}
 }
