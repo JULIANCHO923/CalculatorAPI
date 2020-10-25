@@ -21,7 +21,7 @@ public class OperacionesController {
     }
     @RequestMapping(value="/resta/{n1}/{n2}",method = RequestMethod.GET)
     public ResponseEntity<Double> resta(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
-        return ResponseEntity.status(200).body(("<html><body><title>resta</title>La resta entre "+ n1 + "-" + n2 + " = " + calculadora.resta(n1,n2) + "</body></html>");
+        return ResponseEntity.status(200).body("<html><body><title>resta</title>La resta entre "+ n1 + "-" + n2 + " = " + calculadora.resta(n1,n2) + "</body></html>");
     }
     @RequestMapping(value="/multiplicacion/{n1}/{n2}",method = RequestMethod.GET)
     public ResponseEntity<Double> multiplicacion(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
