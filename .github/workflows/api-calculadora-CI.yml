@@ -24,7 +24,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          tags: juliancho923/api-calculadora:${{ GITHUB_RUN_ID }}
+          tags: juliancho923/api-calculadora:${{ github.run_id }}
           push: true
           file: Dockerfile
       
@@ -42,6 +42,6 @@ jobs:
         id: docker_build_acr
         uses: docker/build-push-action@v2
         with:
-          tags: appregistry6000jh.azurecr.io/api-calculadora:${{ GITHUB_RUN_ID }}
+          tags: appregistry6000jh.azurecr.io/api-calculadora:${{ github.run_id }}
           push: true
           file: Dockerfile
