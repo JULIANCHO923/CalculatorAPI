@@ -35,8 +35,7 @@ jobs:
           registry: appregistry6000jh.azurecr.io
           username: ${{ secrets.AZURE_CLIENT_ID }}
           password: ${{ secrets.AZURE_CLIENT_SECRET }}
-          
-        
+                  
       -
         name: Build and push
         id: docker_build_acr
