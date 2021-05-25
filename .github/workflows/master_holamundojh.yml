@@ -31,5 +31,5 @@ jobs:
         app-name: holamundojh
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2333BEC881CF4B28963FF840CD687B74 }}
-        package: ${{ github.workspace }}/build/libs/*.war
+        package: ./**/build/libs/*.war
 
