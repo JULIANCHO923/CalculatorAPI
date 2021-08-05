@@ -16,6 +16,6 @@ spec:
     spec:
        containers:
        - name: api-calculadora
-         image: juliancho923/api-calculadora:#{Build.BuildId}#
+         image: juliancho923/api-calculadora:latest
          ports:
          - containerPort: 5081
