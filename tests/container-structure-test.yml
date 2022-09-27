@@ -1,0 +1,35 @@
+schemaVersion: 2.0.0
+
+metadataTest:
+  labels:
+    - key: 'architecture'
+      value: 'x86_64'
+
+  env:
+    - key: JAVA_HOME
+      value: /usr/lib/jvm/java-1.8-openjdk/jre
+  
+  exposedPorts: ["80"]
+  workdir: "/myapp/"
+  entrypoint: ["java", "-jar", "CalculatorAPI-0.0.1-SNAPSHOT.war"]
+  #cmd: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]
+  #volumes: []
+   
+commandTests:
+  - name: "java version"
+    command: "java"
+    args: ["-version"]
+    expectedError: ['openjdk version "1.8.0_212"']
+
+fileExistenceTests:
+  - name: ".jar file exists"
+    path: "/myapp/CalculatorAPI-0.0.1-SNAPSHOT.war"
+    shouldExist: true # true or false
+    #permissions: '-rw-rw-r--'
+    #uid: 0
+    #gid: 0
+    
+#fileContentTests:
+# - name: 'Gemfile remote is rubygems.org'
+# path: '/app/Gemfile.lock'
+# expectedContents: ['remote: https://rubygems.org/']

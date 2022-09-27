@@ -1,0 +1,22 @@
+ignored:
+  - DL3020
+
+trustedRegistries: # A docker registry to allow to appear in FROM instructions
+  - docker.io
+  
+#label-schema:
+#  author: text
+
+# hadolint --config hadolint.yaml  Dockerfile
+
+#docker run --rm -i hadolint/hadolint < Dockerfile
+#docker run --rm -i -v hadolint.yaml:/.config/hadolint.yaml hadolint/hadolint < Dockerfile
+
+
+# RULES: https://github.com/hadolint/hadolint#rules
+
+# CONFIG: https://github.com/hadolint/hadolint#configure  (Creando archivos hadolint.yaml)
+
+# Se puede generar diferentes tipos de outputs https://github.com/hadolint/hadolint#cli para que pueda ser interpretados por herramientas como gitlab y sonarqube
+
+# LABELS: Strict labels https://github.com/hadolint/hadolint#linting-labels

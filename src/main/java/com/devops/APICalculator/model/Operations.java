@@ -1,20 +1,20 @@
-package com.devops.calculadoraAPI.modelo;
+package com.devops.CalculatorAPI.model;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Operaciones {
+public class Operations {
 
 
-    public double suma(double n1, double n2) {
+    public double addition(double n1, double n2) {
         return n1+n2;
     }
 
-    public  double resta(double n1, double n2) {
+    public  double substraction(double n1, double n2) {
         return n1-n2;
     }
 
-    public double multiplicacion(double n1, double n2) {
+    public double multiplication(double n1, double n2) {
         return n1*n2;
     }
 
