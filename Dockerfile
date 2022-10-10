@@ -1,12 +1,17 @@
-FROM gradle:6.6.1 as builder
-RUN cd /myapp/
-ADD . .
+FROM gradle:6.6.1 as appbuilder
+ARG APP_VERSION
+WORKDIR /myapp/
+COPY . .
 RUN ./gradlew clean compileJava build
 
 
-FROM openjdk:8-jre-alpine3.9
-LABEL architecture=x86_64
-WORKDIR /myapp
-COPY --from=builder /myapp/build/libs/CalculatorAPI-0.0.1-SNAPSHOT.war .
+FROM gcr.io/distroless/java11-debian11
+ARG APP_VERSION
+LABEL architecture=x86_64 \
+      name=calculator_api 
+WORKDIR /myapp/
+COPY --from=appbuilder myapp/build/libs/CalculatorAPI-${APP_VERSION}.war ./CalculatorAPI.war
 EXPOSE 80
-ENTRYPOINT ["java", "-jar", "CalculatorAPI-0.0.1-SNAPSHOT.war"]
+COPY --from=appbuilder  myapp/src/main/resources/healthcheck/ .
+HEALTHCHECK --interval=15s --timeout=10s --start-period=45s --retries=3 CMD ["java", "HealthCheck.java", "||", "exit", "1"]
+ENTRYPOINT ["java", "-jar", "CalculatorAPI.war"]
